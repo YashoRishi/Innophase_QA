@@ -1,0 +1,22 @@
+---
+name: Github user and user commits
+on:
+  push:
+    branches:
+      - main
+      - dev_branch
+  pull_request:
+      branches:
+        - main
+jobs:
+  fetching_user:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: user name
+        run: |
+          echo The username is ${{ inputs.username }}
+          git log --format=%s 
+
+           
