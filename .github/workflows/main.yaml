@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: user name
         run: |
-          echo The username is ${{ inputs.username }}
+          echo The username is ${{ github.actor }}
           git log --format=%s 
 
            
