@@ -21,6 +21,7 @@ jobs:
            echo "Error: Commit message contains uppercase letters."
            exit 1
            fi
+           
         
            
 
