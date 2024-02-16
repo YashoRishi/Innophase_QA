@@ -14,9 +14,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: user name
+      - name: Check Commit Message
+        id: check_commit
         run: |
-          echo The username is ${{ github.actor }}
-          git log --format=%s 
+           if git log --format=%B -n 1 ${{ github.sha }} | grep -q '[A-Z]'; then
+           echo "Error: Commit message contains uppercase letters."
+           exit 1
+           fi
+        
+           
 
            
